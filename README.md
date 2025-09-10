@@ -1,5 +1,5 @@
 # Retrieval-Augmented Modular Prompt Tuning for Low-Resource Data-to-Text Generation
-**[Gitlab Repository](https://gitlab.com/forfrt/drone/-/tree/main?ref_type=heads)** | **[paper](https://aclanthology.org/2024.lrec-main.1224v2.pdf)**
+**[Hugging Face Datasets](https://huggingface.co/datasets/tonyhong/ramp)** | **[Gitlab Repository](https://gitlab.com/forfrt/drone/-/tree/main?ref_type=heads)** | **[paper](https://aclanthology.org/2024.lrec-main.1224v2.pdf)**
 
 This is the main repo for the paper Retrieval-Augmented Modular Prompt Tuning for Low-Resource Data-to-Text Generation in LREC-COLING 2024. The original code is in a [Gitlab Repository](https://gitlab.com/forfrt/drone/-/tree/main?ref_type=heads). 
 
