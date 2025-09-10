@@ -1,0 +1,19 @@
+device: 'cuda'
+
+model_path: '/BS/nshvetso/work/cache/huggingface/transformers/models--vicuna-13b'
+data_path: 'output/whisper/small_en_10k_postprocessed.pickle'
+word_blocks: '200w'
+
+prompt: "Here is an automatically recognized speech (ASR) from a YouTube video: \"{}\". Write a synopsis for this video. Write only short sentences. Describe only one action per sentence.  Keep only actions that happen in the present time."
+examples: []
+
+model_generate_args:
+  temperature: 0.7
+  do_sample: true
+  max_length: 2048
+  eos_token_id: 2277
+
+batch_processing: true
+batch_size: 8
+
+save_dir: 'output/vicuna'

@@ -1,0 +1,18 @@
+device: 'cuda'
+
+model_path: '/BS/nshvetso/work/cache/huggingface/transformers/models--vicuna-13b'
+data_path: 'data/howto100m_sentencified/sentencified_htm_10k_with_audio.pickle'
+word_blocks: 200
+
+prompt: "Summarize this in third-person detailed descriptions with one action per sentence, keep only actions that happen in the present time: \"{}\""
+examples: []
+
+model_generate_args:
+  temperature: 0.7
+  do_sample: true
+  max_length: 2048
+  eos_token_id: 2277
+#parser.add_argument("--temperature", type=float, default=0.7)
+#parser.add_argument("--max-new-tokens", type=int, default=512)
+
+save_dir: 'output/vicuna'

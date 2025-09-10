@@ -1,0 +1,20 @@
+device: 'cuda'
+
+model_path: '../../../../../../xhong/transformer_models/models--vicuna-13b'
+data_path: 'data/howto100m_sentencified/sentencified_htm_1200k_with_audio.pickle'
+word_blocks: 200
+
+prompt: "Here is the raw sensor data from a drone: \"{}\". Write the handover messages that only includes crucial situation for this data."
+examples: [" {'status': [{'WindSpeed (m/s)': 0, 'DroneSpeed (m/s)': 5, 'PilotExperienced': True, 'Altitude (m)': 8, 'Temperature (celcius)': 12, 'Distance_from_remote_control (m)': 848, 'Battery_level': 80, 'Low_visibility': False, 'Normal_frame': False, 'weather': 'sunny', 'upside_down': True, 'good_motor_condition': False, 'going_backwards': False, 'indoor': False, 'waterproof drone?': False, 'flying over': 'ground', 'criticality': 'advisory', 'RiskOfPhysicalDamage': 'warning', 'RiskOfInternalDamage': False, 'RiskOfHumanDamage': False, 'LostConnection': False}], 'timestep': [{'name': 'flat hause', 'ID_obj': 1.0, 'Type': 'Building', 'Moving': False, 'InPath': False, 'Distance': 5.0, 'time_stamp': '0:02'}, {'name': 'tree 1', 'ID_obj': 2.0, 'Type': 'Tree', 'Moving': False, 'InPath': False, 'Distance': 2.0, 'time_stamp': '0:05'}]}", "Risk of physical damage! The drone has a damaged frame. [SEP]\n(0:05) Risk of physical damage! There's a tree only 2m away. [SEP]\n"]
+
+
+model_generate_args:
+  temperature: 0.7
+  do_sample: true
+  max_length: 2048
+  eos_token_id: 2277
+
+batch_processing: true
+batch_size: 8
+
+save_dir: 'output/vicuna'

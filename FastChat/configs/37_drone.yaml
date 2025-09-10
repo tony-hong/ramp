@@ -1,0 +1,20 @@
+device: 'cuda'
+
+model_path: '../../../../../../xhong/transformer_models/models--vicuna-13b'
+data_path: 'data/howto100m_sentencified/sentencified_htm_1200k_with_audio.pickle'
+word_blocks: 200
+
+prompt: "Here is the raw sensor data from a drone: \"{}\". Write the handover messages that only includes crucial situation for this data."
+examples: []
+
+
+model_generate_args:
+  temperature: 0.7
+  do_sample: true
+  max_length: 2048
+  eos_token_id: 2277
+
+batch_processing: true
+batch_size: 8
+
+save_dir: 'output/vicuna'

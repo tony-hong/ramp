@@ -1,0 +1,27 @@
+device: 'cuda'
+
+model_path: '/BS/nshvetso/work/cache/huggingface/transformers/models--vicuna-13b'
+data_path: 'data/howto100m_sentencified/sentencified_htm_10k_with_audio.pickle'
+word_blocks: '200w_punctuation'
+
+prompt: "Here is an automatically recognized speech (ASR) from a YouTube video: \"{}\". Write a synopsis for this video. Write only short sentences. Describe only one action per sentence.  Keep only actions that happen in the present time."
+examples: [
+            ["Come over here you can sit down at that bar. I'm very dead. If i remember right. Everyone's born under a special sign right. It determines your personality. That's astrology not astronomy. Whatever. Let's just make up our own rules signs what it says about you. And it's not like anyone remembers the old way. Okay let's. Right now. It needs a personality right. Pretty good with other people. Always moving tons of energy. Sounds like anyone we know the energy one is easy. Good with people not so much. Yeah that sounds like you weren't you listening. I said good with other people. Well maybe not that part. I'll try to take the rest as a compliment. I spy with my see it. Hmm right there right above your head. Yeah they're all above my head us this one's easy. Smart clean vicious dependable someone you want with you in. He can survive no question there. Okay one more time. I found a bird. Like a real bird. Now. A star bird right there. A bird is free. It could go anywhere it wanted to. Up and up and up and never come back.",
+             "SOMEONE sits down at a bar. SOMEONE notices stars. SOMEONE makes up rules to determine personalities. SOMEONE spots a bird in the stars."
+            ],
+            ["You know like a cheese sauce. Okay now it's now the sauce is starting to thicken. So we're gonna throw in our. And we're also gonna throw our minced garlic in there. So what i risk to work all right. So we're gonna put our pasta in there and particularly this one takes nine minutes for its a hook. So all right. So now we are gonna pour this cheese sauce in there. All right. So then we're gonna add our kale and sun - dried tomatoes. I mean you can also add it with in the cheese sauce but and then pour it in there. But we're gonna also cook it within our two pieces of bread. So now we're going to do the grilled of mac and cheese sandwich pocket. I've got two for. We're gonna scoop the mac and cheese onto these. Alright so just when you think it's over it's not ok that is good. Yo. Flavortown. Flavortown is far. Hello amy. Use this posture right here. Leaves outside and put them in our mac.",
+             "The cheese sauce starts to thicken. SOMEONE adds minced garlic to the sauce. SOMEONE pours the cheese sauce into the pasta. SOMEONE adds kale and sun-dried tomatoes. SOMEONE scoops the mac and cheese onto two pieces of bread."
+            ]
+]
+
+
+model_generate_args:
+  temperature: 0.7
+  do_sample: true
+  max_length: 2048
+  eos_token_id: 2277
+
+batch_processing: true
+batch_size: 8
+
+save_dir: 'output/vicuna'
